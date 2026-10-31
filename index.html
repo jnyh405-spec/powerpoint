@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Augmented Reality (AR) &amp; Virtual Reality (VR) | الواقع المعزز والواقع الافتراضي</title>
+<meta name="description" content="عرض تقديمي جامعي عن الواقع المعزز والواقع الافتراضي —Exploring the Future of Immersive Technology.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Tajawal:wght@300;400;500;700;800&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ============ أيقونات SVG (sprite) ============ -->
+<svg class="sprite" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <g id="g-stroke" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></g>
+  </defs>
+  <symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M11 18.5h2"/></symbol>
+  <symbol id="i-headset" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2.6 10.2C2.6 6.6 5.3 3.8 9 3.8h6c3.7 0 6.4 2.8 6.4 6.4v1.9c0 1.7-1.2 2.9-2.8 2.9h-2.1c-.5 0-1-.3-1.3-.7l-.9-1.3c-.5-.7-1.7-.7-2.2 0l-.9 1.3c-.3.4-.8.7-1.3.7H5.4c-1.6 0-2.8-1.2-2.8-2.9z"/><path d="M9.2 8.2h5.6"/></symbol>
+  <symbol id="i-eye" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2.2 12S5.7 5.6 12 5.6 21.8 12 21.8 12 18.3 18.4 12 18.4 2.2 12 2.2 12z"/><circle cx="12" cy="12" r="3.1"/></symbol>
+  <symbol id="i-chip" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="6" width="12" height="12" rx="2.4"/><rect x="9.6" y="9.6" width="4.8" height="4.8" rx="1"/><path d="M9.5 2v4M14.5 2v4M9.5 18v4M14.5 18v4M2 9.5h4M2 14.5h4M18 9.5h4M18 14.5h4"/></symbol>
+  <symbol id="i-cube" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.4l9 4.8v9.6l-9 4.8-9-4.8V7.2z"/><path d="M3 7.2l9 4.8 9-4.8M12 12v9.6"/></symbol>
+  <symbol id="i-camera" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5A2.5 2.5 0 0 1 5.5 6H8l1.4-2h5.2L16 6h2.5A2.5 2.5 0 0 1 21 8.5v9A2.5 2.5 0 0 1 18.5 20h-13A2.5 2.5 0 0 1 3 17.5z"/><circle cx="12" cy="13" r="3.6"/></symbol>
+  <symbol id="i-motion" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3.2"/><path d="M2.5 12H7M17 12h4.5M12 2.5V7M12 17v4.5M6 6l2.6 2.6M15.4 15.4L18 18M18 6l-2.6 2.6M8.6 15.4L6 18"/></symbol>
+  <symbol id="i-target" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4.6"/><circle cx="12" cy="12" r="1.1" fill="currentColor"/></symbol>
+  <symbol id="i-cap" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2.4 8.4L12 4.4l9.6 4L12 12.4z"/><path d="M6.4 10.4v5.2c0 1.9 2.8 3.4 5.6 3.4s5.6-1.5 5.6-3.4v-5.2"/></symbol>
+  <symbol id="i-health" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20.4 6.6a4.7 4.7 0 0 0-6.6 0L12 8.4l-1.8-1.8a4.7 4.7 0 1 0-6.6 6.6l8.4 8.4 8.4-8.4a4.7 4.7 0 0 0 0-6.6z"/><path d="M3.4 12.6h4l1.4-2.4 2 5 1.7-3.1 1.2 1.6h5.9"/></symbol>
+  <symbol id="i-game" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7.2 7.5h9.6a4.6 4.6 0 0 1 4.5 5.8l-.7 3a2.7 2.7 0 0 1-4.9 1.2l-1-1.4H9.3l-1 1.4a2.7 2.7 0 0 1-4.9-1.2l-.7-3a4.6 4.6 0 0 1 4.5-5.8z"/><path d="M7 11v4M5 13h4M15.6 11.8h.01M18.4 14.4h.01"/></symbol>
+  <symbol id="i-bag" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5.4 8h13.2l1 12H4.4z"/><path d="M9 8V6.2a3 3 0 0 1 6 0V8"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21.6s7-6.3 7-12a7 7 0 1 0-14 0c0 5.7 7 12 7 12z"/><circle cx="12" cy="9.6" r="2.6"/></symbol>
+  <symbol id="i-spark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.6l1.9 5.5 5.5 1.9-5.5 1.9L12 17.4l-1.9-5.5L4.6 10l5.5-1.9z"/><path d="M18.6 15.4l.8 2.2 2.2.8-2.2.8-.8 2.2-.8-2.2-2.2-.8 2.2-.8z"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.4l8 2.9v6.6c0 5-3.5 8.5-8 9.7-4.5-1.2-8-4.7-8-9.7V5.3z"/><path d="M9 11.8l2.2 2.2 4-4.2"/></symbol>
+  <symbol id="i-coin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 6.8v10.4M9.6 9.2h4.8M9.6 13.6h4.8"/></symbol>
+  <symbol id="i-dizzy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3.2"/><path d="M12 3.2v3.4M12 17.4v3.4M3.2 12h3.4M17.4 12h3.4M6 6l2.4 2.4M15.6 15.6L18 18M18 6l-2.4 2.4M8.4 15.6L6 18"/></symbol>
+  <symbol id="i-glasses" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2.6 11.4h4.6M16.8 11.4h4.6"/><path d="M9.2 11.4a3.1 3.1 0 0 0-6.2 0v1.6a3.1 3.1 0 0 0 6.2 0zM21 11.4a3.1 3.1 0 0 0-6.2 0v1.6a3.1 3.1 0 0 0 6.2 0z"/></symbol>
+  <symbol id="i-network" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="4.6" r="2.4"/><circle cx="4.8" cy="18.4" r="2.4"/><circle cx="19.2" cy="18.4" r="2.4"/><circle cx="12" cy="12.6" r="2.6"/><path d="M12 7v3M9.9 13.8L6.8 16.7M14.1 13.8l3.1 2.9"/></symbol>
+  <symbol id="i-robot" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3.6" y="7.6" width="16.8" height="12" rx="3.4"/><path d="M12 3v4.6M9.4 13h.01M14.6 13h.01M9.6 16.6h4.8"/><circle cx="12" cy="3" r="1.2"/></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.4"/><path d="M2.8 20a6.2 6.2 0 0 1 12.4 0"/><path d="M16.4 5.2a3.4 3.4 0 0 1 0 6.6M17.6 14.4a6.2 6.2 0 0 1 3.6 5.6"/></symbol>
+  <symbol id="i-lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4.4" y="10" width="15.2" height="11" rx="2.6"/><path d="M8 10V7.4a4 4 0 0 1 8 0V10"/><path d="M12 14.4v3"/></symbol>
+  <symbol id="i-layers" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.8l9.2 4.7L12 12.2 2.8 7.5z"/><path d="M2.8 12.2l9.2 4.7 9.2-4.7M2.8 16.6l9.2 4.7 9.2-4.7"/></symbol>
+  <symbol id="i-twin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="7.2" cy="7.2" r="4.4"/><circle cx="16.8" cy="16.8" r="4.4"/><path d="M10.2 10.2l3.6 3.6M13.4 13.4L10 17M16.6 7.2H8M16.8 10.4V7.4"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 12.6l5 5L19.5 6.6"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6.2 6.2l11.6 11.6M17.8 6.2L6.2 17.8"/></symbol>
+  <symbol id="i-arrow-r" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 12h15M13.5 6l6 6-6 6"/></symbol>
+  <symbol id="i-arrow-l" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M19.5 12h-15M10.5 6l-6 6 6 6"/></symbol>
+  <symbol id="i-note" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3.6h9.4L19 8.2v12.2H5z"/><path d="M14 3.6v5h5M8.4 13h7M8.4 16.4h5"/></symbol>
+  <symbol id="i-print" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M7 9V3.4h10V9"/><rect x="3.4" y="9" width="17.2" height="7.6" rx="2"/><path d="M7 14h10v6.6H7z"/></symbol>
+  <symbol id="i-full" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3.6 9V3.6H9M15 3.6h5.4V9M20.4 15v5.4H15M9 20.4H3.6V15"/></symbol>
+</svg>
+
+<!-- ============ خلفية Futuristic ============ -->
+<div class="backdrop" aria-hidden="true">
+  <canvas id="fx"></canvas>
+  <div class="backdrop__grid"></div>
+  <div class="backdrop__glow backdrop__glow--a"></div>
+  <div class="backdrop__glow backdrop__glow--b"></div>
+  <div class="backdrop__glow backdrop__glow--c"></div>
+  <div class="backdrop__scan"></div>
+</div>
+
+<!-- ============ شريط الأدوات ============ -->
+<div class="toolbar" role="toolbar" aria-label="أدوات العرض">
+  <button class="tool" id="btnNotes" type="button" title="ملاحظات المُحاضر (N)" aria-pressed="false"><svg class="ico"><use href="#i-note"/></svg><span>ملاحظات</span></button>
+  <button class="tool" id="btnFull" type="button" title="ملء الشاشة (F)"><svg class="ico"><use href="#i-full"/></svg><span>ملء الشاشة</span></button>
+  <button class="tool" id="btnPrint" type="button" title="طباعة / حفظ PDF (P)"><svg class="ico"><use href="#i-print"/></svg><span>طباعة</span></button>
+</div>
+
+<!-- ============ العداد ============ -->
+<div class="counter" aria-live="polite"><b id="cNow">01</b><span>/</span><span id="cAll">12</span></div>
+
+<!-- ============ العرض ============ -->
+<main class="deck" id="deck">
+
+<!-- ============ 1 · COVER ============ -->
+<section class="slide slide--cover" data-title="الغلاف" data-notes="ابدئي بالترحيب وبناء التوقع: هذا العرض يتناول كيف أصبحت تقنيتان — الواقع المعزز والواقع الافتراضي — جزءاً من حياتنا اليومية ومن تخصص الذكاء الاصطناعي تحديداً. اذكري أن الغلاف يجمع بين نصفين: نصف حقيقي ونصف رقمي، وهو بالضبط ما سنشرحه طوال العرض. اذكري اسمك والمقرر والجامعة، ثم انتقي إلى السؤال الافتتاحي.">
+  <div class="slide__inner cover">
+    <div class="cover__text">
+      <span class="kicker"><i class="dot"></i>عرض تقديمي · تخصص <span dir="ltr">Artificial Intelligence (AI)</span></span>
+      <h1 class="cover__title" dir="ltr">Augmented Reality <span class="amp">(AR)</span> &amp; Virtual Reality <span class="amp">(VR)</span></h1>
+      <h2 class="cover__title-ar">الواقع المعزَّز والواقع الافتراضي</h2>
+      <p class="cover__sub" dir="ltr">Exploring the Future of Immersive Technology</p>
+      <div class="cover__meta">
+        <span class="editable">إعداد: ......................</span>
+        <span class="sep"></span>
+        <span class="editable">إشراف: ......................</span>
+        <span class="sep"></span>
+        <span class="editable">الفصل / التاريخ: ......................</span>
+      </div>
+    </div>
+    <div class="cover__art">
+      <svg class="scene" viewBox="0 0 660 470" role="img" aria-label="مشهد يجمع العالم الحقيقي بنصفه الأرضي والعالم الافتراضي بنصفه الرقمي">
+        <defs>
+          <linearGradient id="cvReal" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0e2f4d"/><stop offset="1" stop-color="#060b16"/></linearGradient>
+          <linearGradient id="cvVirt" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2a0f4d"/><stop offset="1" stop-color="#050a16"/></linearGradient>
+          <linearGradient id="cvEdge" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#00e5ff" stop-opacity="0"/><stop offset=".5" stop-color="#00e5ff" stop-opacity=".95"/><stop offset="1" stop-color="#a855f7" stop-opacity="0"/></linearGradient>
+          <radialGradient id="cvPlanet" cx="38%" cy="32%"><stop offset="0" stop-color="#3b2a7a"/><stop offset=".55" stop-color="#151a3d"/><stop offset="1" stop-color="#070b1c"/></radialGradient>
+          <radialGradient id="cvSun"><stop offset="0" stop-color="#7fe9ff"/><stop offset="1" stop-color="#0a84ff" stop-opacity="0"/></radialGradient>
+          <clipPath id="cvClipL"><rect x="0" y="0" width="300" height="470"/></clipPath>
+          <clipPath id="cvClipR"><rect x="360" y="0" width="300" height="470"/></clipPath>
+        </defs>
+
+        <!-- النصف الأيسر: العالم الحقيقي -->
+        <g clip-path="url(#cvClipL)">
+          <rect x="0" y="0" width="300" height="470" fill="url(#cvReal)"/>
+          <circle cx="96" cy="96" r="70" fill="url(#cvSun)" opacity=".8"/>
+          <circle cx="96" cy="96" r="26" fill="#bfefff" opacity=".85"/>
+          <g stroke="#5fe3ff" stroke-opacity=".35" stroke-width="1">
+            <path d="M0 330h300M0 366h300M0 404h300M0 446h300"/>
+            <path d="M150 330L40 470M150 330L110 470M150 330L150 470M150 330L190 470M150 330L260 470"/>
+          </g>
+          <rect x="0" y="326" width="300" height="4" fill="#00e5ff" opacity=".5"/>
+          <g fill="none" stroke="#9ff0ff" stroke-width="1.6" opacity=".9">
+            <path d="M212 326v-56h44v56"/>
+            <path d="M204 270h60l-8-14h-44z"/>
+            <path d="M228 326v-40h12v40"/>
+          </g>
+          <g fill="none" stroke="#7ef0c8" stroke-width="1.8" opacity=".95">
+            <path d="M62 326v-46"/>
+            <path d="M62 288c-20-4-28-18-26-32 12 2 20 8 26 16 6-8 14-14 26-16 2 14-6 28-26 32z"/>
+          </g>
+        </g>
+
+        <!-- المنتصف: بوابة -->
+        <rect x="300" y="0" width="60" height="470" fill="url(#cvEdge)" opacity=".55"/>
+        <path d="M330 40a190 190 0 0 1 0 390" fill="none" stroke="#00e5ff" stroke-width="1.6" opacity=".55"/>
+        <path d="M330 40a190 190 0 0 0 0 390" fill="none" stroke="#a855f7" stroke-width="1.6" opacity=".55"/>
+
+        <!-- النصف الأيمن: العالم الافتراضي -->
+        <g clip-path="url(#cvClipR)">
+          <rect x="360" y="0" width="300" height="470" fill="url(#cvVirt)"/>
+          <g stroke="#a855f7" stroke-opacity=".2" stroke-width="1">
+            <path d="M360 90h300M360 170h300M360 250h300M360 330h300M360 410h300"/>
+            <path d="M450 0v470M540 0v470M630 0v470"/>
+          </g>
+          <g transform="translate(512 168)">
+            <circle r="86" fill="url(#cvPlanet)"/>
+            <g fill="none" stroke="#7dd3fc" stroke-opacity=".55" stroke-width="1">
+              <circle r="86"/>
+              <ellipse rx="32" ry="86"/>
+              <ellipse rx="60" ry="86"/>
+              <ellipse rx="86" ry="30"/>
+              <ellipse rx="86" ry="60"/>
+            </g>
+            <ellipse rx="124" ry="40" fill="none" stroke="#00e5ff" stroke-opacity=".7" stroke-width="1.4" transform="rotate(-22)"/>
+            <ellipse rx="124" ry="40" fill="none" stroke="#a855f7" stroke-opacity=".5" stroke-width="1.4" transform="rotate(-22)" stroke-dasharray="5 7"/>
+            <circle cx="-46" cy="-30" r="3.4" fill="#00e5ff"/>
+            <circle cx="52" cy="24" r="3" fill="#c084fc"/>
+            <circle cx="10" cy="-64" r="2.4" fill="#e0f2fe"/>
+          </g>
+          <g fill="#e0f2fe">
+            <circle cx="396" cy="78" r="1.8" opacity=".9"/><circle cx="440" cy="52" r="1.3" opacity=".7"/>
+            <circle cx="616" cy="70" r="1.6" opacity=".8"/><circle cx="592" cy="372" r="1.4" opacity=".7"/>
+            <circle cx="392" cy="392" r="1.5" opacity=".8"/><circle cx="640" cy="300" r="1.2" opacity=".6"/>
+            <circle cx="466" cy="300" r="1.1" opacity=".5"/><circle cx="418" cy="196" r="1.2" opacity=".6"/>
+          </g>
+          <g fill="none" stroke="#00e5ff" stroke-opacity=".55" stroke-width="1.4">
+            <rect x="392" y="352" width="66" height="44" rx="4"/>
+            <path d="M392 366h66M400 352l-8 14M450 352l8 14"/>
+          </g>
+        </g>
+      </svg>
+      <div class="cover__chips">
+        <span><svg class="ico"><use href="#i-phone"/></svg><span dir="ltr">AR</span></span>
+        <span><svg class="ico"><use href="#i-headset"/></svg><span dir="ltr">VR</span></span>
+        <span><svg class="ico"><use href="#i-chip"/></svg><span dir="ltr">AI</span></span>
+        <span><svg class="ico"><use href="#i-layers"/></svg><span dir="ltr">MR</span></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 2 · IMAGINE THE FUTURE ============ -->
+<section class="slide" data-title="تخيّل المستقبل" data-notes="ابدئي بالسؤال المكتوب على الشاشة واتركي ثانيتين صمت قبل الإجابة — التوقف القصير يبني تفاعلًا مع الجمهور. ثم اشرحي أن الأمثلة الثلاثة تغطي الشرائح كلها: VR للتجربة الغامرة، و AR للطبقات الرقمية فوق العالم الحقيقي، و AR للتسوّق. النقطة المفتاح: الفرق بين AR وVR ليس في قوة الجهاز بل في موقعك من العالم. اربطي هذا بالسؤال الختامي في الشريحة الأخيرة.">
+  <div class="slide__inner">
+    <header class="s-head">
+      <span class="kicker"><i class="dot"></i>المحور الأول · <span dir="ltr">Imagine the Future</span></span>
+      <h2 class="s-title">تخيّل لو رأيت غدًا قبل أن يصل</h2>
+    </header>
+
+    <div class="s-body s-body--quote">
+      <blockquote class="big-quote" dir="ltr">“What if you could enter a virtual world without leaving your room?”</blockquote>
+      <p class="quote-ar">سؤال واحد يكفي لتغيير علاقتك بالشاشة: اليوم تنظر إلى العالم عبر زجاج، أما الغد فقد تندمج في داخله.</p>
+
+      <div class="trio">
+        <article class="trio__card trio__card--vr">
+          <div class="trio__icon"><svg class="ico"><use href="#i-headset"/></svg></div>
+          <h3>زيارة المريخ <span dir="ltr">(VR)</span></h3>
+          <p>أنت في غرفتك… وداخل <span dir="ltr">VR Headset</span> تتجول فوق سطح المريخ، تلمس الصخور وتتأمل المظلّة الحمراء. لا تنقل سَنتمترًا — فقط رأسك وحركة يديك.</p>
+        </article>
+        <article class="trio__card trio__card--ar">
+          <div class="trio__icon"><svg class="ico"><use href="#i-phone"/></svg></div>
+          <h3>المريخ في غرفتك <span dir="ltr">(AR)</span></h3>
+          <p>وجّه كاميرا هاتفك نحو صورة للمريخ، فتظهر فوق الصخرة <span dir="ltr">Digital Labels</span> ومعلّمات تربوية تفاعلية — والمريخ يبقى مرئيًا حقيقيًا من حولك.</p>
+        </article>
+        <article class="trio__card trio__card--ar">
+          <div class="trio__icon"><svg class="ico"><use href="#i-bag"/></svg></div>
+          <h3>تجربة الأثاث <span dir="ltr">(AR)</span></h3>
+          <p>قبل شراء الأريكة، ضعها داخل غرفتك بحجمها الحقيقي وشاهدها مع إضاءة المكان. القرار الشرائي صار تجربة بصرية لا تخمين.</p>
+        </article>
+      </div>
+
+      <p class="s-note"><svg class="ico"><use href="#i-spark"/></svg><span>الفكرة الجوهرية: <b dir="ltr">AR</b> يضيف الرقمية إلى العالم، و<b dir="ltr">VR</b> ينقلك إلى عالم رقمي. كل ما سنعرضه اليوم هو تفسيرٌ أوسع لهذه الجملة.</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 3 · WHAT IS AR ============ -->
+<section class="slide" data-title="ما هو الواقع المعزز؟" data-notes="عرّفي الواقع المعزز ببساطة: هو أن يبقى العالم الحقيقي مرئيًا بينما تضيف التقنية طبقة رقمية فوقه. ميّزي بينه وبين «فلتر» مألوف لدى الجمهور: الفلتر يبقى داخل الصورة، أما AR فيتفاعل مع محيطك الحقيقي ويعرف مكانك في الغرفة. أبرزي أن AR لا يحتاج قوة حوسبة ضخمة لأن أصعب جزء (تتبّع المكان) يُحلّ بالليزر أو الرؤية الحاسوبية على الهاتف. مثال Pokémon GO هو الأمثلة الأشهر عالميًا.">
+  <div class="slide__inner split">
+    <div class="split__text">
+      <header class="s-head">
+        <span class="kicker"><i class="dot"></i>المصطلح الأول · <span dir="ltr">What is Augmented Reality?</span></span>
+        <h2 class="s-title">الواقع المعزَّز <span dir="ltr">(AR)</span></h2>
+        <p class="s-lead">تقنية تضيف عناصر رقمية <span dir="ltr">(Digital Elements)</span> إلى العالم الحقيقي <span dir="ltr">(Physical World)</span> في الوقت الفعلي، دون أن يغادر المستخدم مكانه.</p>
+      </header>
+      <ul class="ticks">
+        <li><span class="tick tick--ok"><svg class="ico"><use href="#i-check"/></svg></span><span><b>العالم الحقيقي يبقى ظاهرًا</b> — تدمج الكاميرا الصورة الرقمية فوق ما تراه بعينك مباشرة.</span></li>
+        <li><span class="tick tick--ok"><svg class="ico"><use href="#i-check"/></svg></span><span><b>التفاعل مع المكان</b> — يُستخدم <span dir="ltr">GPS</span> والبوصلة و<i>LiDAR</i> ليعرف التطبيق أين أنت.</span></li>
+        <li><span class="tick tick--ok"><svg class="ico"><use href="#i-check"/></svg></span><span><b>العتاد خفيف</b> — هاتف أو نظارة ذكية تكفي؛ لا تحتاج جهازًا مستقلًا باهظ الثمن.</span></li>
+        <li><span class="tick tick--ok"><svg class="ico"><use href="#i-check"/></svg></span><span><b>الأمثلة:</b> <span dir="ltr">Pokémon GO</span> · <span dir="ltr">IKEA Place</span> · <span dir="ltr">Snapchat Lens</span> · تجريب المكياج Virtual Try-On.</span></li>
+      </ul>
+    </div>
+    <div class="split__art">
+      <svg class="scene" viewBox="0 0 420 460" role="img" aria-label="رسم توضيحي لهاتف يعرض قطعة أثاث افتراضية داخل غرفة حقيقية">
+        <defs>
+          <linearGradient id="phG" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#12304e"/><stop offset="1" stop-color="#070d1b"/></linearGradient>
+          <linearGradient id="phF" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7c3aed" stop-opacity=".55"/><stop offset="1" stop-color="#00e5ff" stop-opacity=".35"/></linearGradient>
+          <filter id="phGlow" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="7" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+        </defs>
+        <rect x="20" y="12" width="380" height="436" rx="22" fill="url(#phG)" stroke="#00e5ff" stroke-opacity=".35"/>
+        <g stroke="#5fe3ff" stroke-opacity=".28" stroke-width="1">
+          <path d="M20 330h380M20 372h380M20 414h380"/>
+          <path d="M210 330L70 448M210 330L150 448M210 330L210 448M210 330L270 448M210 330L350 448"/>
+        </g>
+        <g fill="none" stroke="#7ef0c8" stroke-width="1.6" opacity=".85"><path d="M72 330v-52"/><path d="M72 286c-18-4-25-16-23-29 11 2 18 7 23 15 5-8 12-13 23-15 2 13-5 25-23 29z"/></g>
+
+        <!--chair AR-->
+        <g filter="url(#phGlow)">
+          <g fill="url(#phF)" stroke="#7fe9ff" stroke-width="1.8">
+            <path d="M186 214h84v22h-84z"/>
+            <path d="M190 236h76v54h-76z"/>
+            <path d="M270 240h18v16h-18zM188 240h-18v16h18z"/>
+            <path d="M194 290v52M262 290v52M192 342h8M256 342h8"/>
+          </g>
+        </g>
+        <!--anchor -->
+        <g stroke="#ff5fa2" stroke-width="1.6" fill="none">
+          <path d="M150 380h56M150 380v-56M150 380h100"/>
+          <circle cx="150" cy="380" r="6"/>
+        </g>
+        <g stroke="#00e5ff" stroke-width="1.4" fill="none" opacity=".9">
+          <path d="M168 196v-18h18M276 196v-18h-18M168 310v18h18M276 310v18h-18"/>
+        </g>
+        <text x="300" y="382" font-family="Space Grotesk, sans-serif" font-size="13" fill="#7fe9ff" opacity=".85" dir="ltr">4,920 × 3,280 mm</text>
+        <text x="120" y="418" font-family="Cairo, sans-serif" font-size="15" fill="#cbd5e1" opacity=".8">مقاس حقيقي داخل الغرفة</text>
+        <g transform="translate(286 92)">
+          <rect x="-52" y="-24" width="104" height="48" rx="10" fill="#00e5ff" fill-opacity=".14" stroke="#00e5ff" stroke-opacity=".7"/>
+          <text x="0" y="-2" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="12" fill="#9ff0ff" dir="ltr">AR</text>
+          <text x="0" y="14" text-anchor="middle" font-family="Cairo, sans-serif" font-size="12" fill="#cbd5e1">طبقة رقمية</text>
+        </g>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 4 · WHAT IS VR ============ -->
+<section class="slide" data-title="ما هو الواقع الافتراضي؟" data-notes="عرّفي VR بالتقابل: أنت تغادر العالم بدل أن تُضاف إليه. وضّحي مكونات الـVR Headset: شاشات، عدسات، تتبع حركة، وسماعات، ومقابض تحكّم (controllers). أشرحي إلى 6DoF — ست درجات حرية — وهي ما يميّز الأجهزة الحديثة عن الجلسات البسيطة على الهاتف. اذكري Oculus Quest 3 وApple Vision Pro كأجهزة رئيسية مع السعر كدليل على فروق التكلفة.">
+  <div class="slide__inner split split--flip">
+    <div class="split__text">
+      <header class="s-head">
+        <span class="kicker"><i class="dot"></i>المصطلح الثاني · <span dir="ltr">What is Virtual Reality?</span></span>
+        <h2 class="s-title">الواقع الافتراضي <span dir="ltr">(VR)</span></h2>
+        <p class="s-lead">تقنية تنقل المستخدم إلى بيئة رقمية غامرة <span dir="ltr">(Immersive Digital Environment)</span> تحجب كل أثر للعالم الحقيقي.</p>
+      </header>
+      <ul class="ticks">
+        <li><span class="tick tick--ok"><svg class="ico"><use href="#i-check"/></svg></span><span><b>الانتقال لا الإضافة</b> — لا ترى غرفتك ولا جهازك؛ أنت <i>داخل</i> البيئة الرقمية.</span></li>
+        <li><span class="tick tick--ok"><svg class="ico"><use href="#i-check"/></svg></span><span><b>ستّ درجات حرية <span dir="ltr">(6DoF)</span></b> — تتبّع كامل للموقع والاتجاه، فيمشي المستخدم داخل العالم.</span></li>
+        <li><span class="tick tick--ok"><svg class="ico"><use href="#i-check"/></svg></span><span><b><span dir="ltr">Motion Tracking</span></b> — كاميرات خارجية + مستشعرات <i>IMU</i> داخل الرأس تترجم حركة جسمك إلى حركة داخل العالم.</span></li>
+        <li><span class="tick tick--ok"><svg class="ico"><use href="#i-check"/></svg></span><span><b>الحوافز الحاسّية</b> — <i>Haptic</i> feedback و<span dir="ltr">Spatial Audio</span> يقرّبان الإحساس بالواقع.</span></li>
+      </ul>
+      <div class="mini-devices">
+        <span><svg class="ico"><use href="#i-headset"/></svg><b dir="ltr">Meta Quest 3</b><i dir="ltr">$599.99</i></span>
+        <span><svg class="ico"><use href="#i-eye"/></svg><b dir="ltr">Apple Vision Pro</b><i dir="ltr">$3,699</i></span>
+        <span><svg class="ico"><use href="#i-game"/></svg><b dir="ltr">PS VR2</b><i dir="ltr">$549.99</i></span>
+      </div>
+    </div>
+    <div class="split__art">
+      <svg class="scene" viewBox="0 0 420 460" role="img" aria-label="رسم لنظارة واقع افتراضي مع حلقات تتبع الحركة">
+        <defs>
+          <linearGradient id="vG" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2b1a52"/><stop offset="1" stop-color="#070d1b"/></linearGradient>
+          <radialGradient id="vGlow"><stop offset="0" stop-color="#a855f7" stop-opacity=".55"/><stop offset="1" stop-color="#a855f7" stop-opacity="0"/></radialGradient>
+          <filter id="vF" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="8" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+        </defs>
+        <circle cx="210" cy="200" r="165" fill="url(#vGlow)"/>
+        <g stroke="#a855f7" stroke-opacity=".3" stroke-width="1" fill="none">
+          <ellipse cx="210" cy="200" rx="170" ry="60"/>
+          <ellipse cx="210" cy="200" rx="170" ry="100"/>
+          <ellipse cx="210" cy="200" rx="60" ry="170"/>
+          <ellipse cx="210" cy="200" rx="110" ry="170"/>
+        </g>
+        <g filter="url(#vF)">
+          <path d="M76 176c0-40 32-66 74-66h120c42 0 74 26 74 66v22c0 15-11 26-26 26h-30c-6 0-12-3-15-8l-10-14c-6-9-19-9-25 0l-10 14c-3 5-9 8-15 8h-42c-15 0-26-11-26-26z" fill="url(#vG)" stroke="#c084fc" stroke-width="2.4"/>
+          <path d="M92 186h96a12 12 0 0 1 12 12v16a12 12 0 0 1-12 12H120c-16 0-28-12-28-28z" fill="#00e5ff" fill-opacity=".16" stroke="#7fe9ff" stroke-width="1.4"/>
+          <path d="M328 186h-96a12 12 0 0 0-12 12v16a12 12 0 0 0 12 12h78c16 0 28-12 28-28z" fill="#00e5ff" fill-opacity=".16" stroke="#7fe9ff" stroke-width="1.4"/>
+          <path d="M196 172h28" stroke="#e9d5ff" stroke-width="3" stroke-linecap="round"/>
+        </g>
+        <g stroke="#00e5ff" stroke-width="1.6" fill="none" opacity=".9">
+          <path d="M96 288c-8 16-8 34 0 50" /><path d="M324 288c8 16 8 34 0 50"/>
+        </g>
+        <g fill="#7fe9ff" font-family="Cairo, sans-serif" font-size="13" opacity=".9">
+          <text x="210" y="368" text-anchor="middle">تتبّع الحركة (Motion Tracking)</text>
+          <text x="210" y="392" text-anchor="middle" opacity=".75">حركة الجسم ← حركة داخل العالم</text>
+        </g>
+        <g transform="translate(210 74)">
+          <rect x="-62" y="-24" width="124" height="48" rx="10" fill="#a855f7" fill-opacity=".16" stroke="#c084fc" stroke-opacity=".7"/>
+          <text x="0" y="-2" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="12" fill="#e9d5ff" dir="ltr">VR</text>
+          <text x="0" y="14" text-anchor="middle" font-family="Cairo, sans-serif" font-size="12" fill="#cbd5e1">عزل كامل</text>
+        </g>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 5 · AR vs VR ============ -->
+<section class="slide" data-title="AR مقابل VR" data-notes="هذه شريحة المقارنة — لا تقرئي كل خلية. قارني سطرًا سطرًا مع الجمهور وأكدي على سطر تجربة المستخدم: في AR تبقى في مكتبك، وفي VR تختفي منه. اربطي كل عمود بأمثلة يعرفها الجميع. نبّه إلى أن الخطوط ليست حادة: الواقع المعزز المختلط (Mixed Reality) يُستخدم في المصطلح المهني للإشارة إلى أجهزة مثل Quest 3 التي تدعم passthrough.">
+  <div class="slide__inner">
+    <header class="s-head s-head--center">
+      <span class="kicker"><i class="dot"></i>مقارنة · <span dir="ltr">AR vs. VR</span></span>
+      <h2 class="s-title">أين التقنيتان تختلفان؟</h2>
+    </header>
+    <div class="vs-table" role="table" aria-label="مقارنة بين الواقع المعزز والواقع الافتراضي">
+      <div class="vs-row vs-row--head" role="row">
+        <div class="vs-cell vs-cell--label" role="columnheader">المعيار</div>
+        <div class="vs-cell vs-cell--ar" role="columnheader"><svg class="ico"><use href="#i-phone"/></svg><span dir="ltr">AR</span> · الواقع المعزَّز</div>
+        <div class="vs-cell vs-cell--vr" role="columnheader"><svg class="ico"><use href="#i-headset"/></svg><span dir="ltr">VR</span> · الواقع الافتراضي</div>
+      </div>
+      <div class="vs-row" role="row">
+        <div class="vs-cell vs-cell--label" role="rowheader"><svg class="ico"><use href="#i-layers"/></svg><span>البيئة<br><i dir="ltr">Environment</i></span></div>
+        <div class="vs-cell vs-cell--ar" role="cell">العالم الحقيقي مرئي ومألوف، مع طبقة رقمية مضافة فوقه.</div>
+        <div class="vs-cell vs-cell--vr" role="cell">بيئة رقمية معزولة تمامًا عن المكان والزمان.</div>
+      </div>
+      <div class="vs-row" role="row">
+        <div class="vs-cell vs-cell--label" role="rowheader"><svg class="ico"><use href="#i-cube"/></svg><span>الأجهزة<br><i dir="ltr">Devices</i></span></div>
+        <div class="vs-cell vs-cell--ar" role="cell">هاتف ذكي أو نظارة ذكية — بلا جهاز مستقل.</div>
+        <div class="vs-cell vs-cell--vr" role="cell"><span dir="ltr">Headset</span> مستقل: نظارة + وحدة معالجة + تحكم.</div>
+      </div>
+      <div class="vs-row" role="row">
+        <div class="vs-cell vs-cell--label" role="rowheader"><svg class="ico"><use href="#i-users"/></svg><span>تجربة المستخدم<br><i dir="ltr">User Experience</i></span></div>
+        <div class="vs-cell vs-cell--ar" role="cell">تبقى في مكانك؛ الاستخدام عادي ويمكنك رفع الهاتف في أي لحظة.</div>
+        <div class="vs-cell vs-cell--vr" role="cell">غمر كامل: تنسى مكانك وتتفاعل بحرية داخل العالم.</div>
+      </div>
+      <div class="vs-row" role="row">
+        <div class="vs-cell vs-cell--label" role="rowheader"><svg class="ico"><use href="#i-bag"/></svg><span>التطبيقات<br><i dir="ltr">Real-Life Applications</i></span></div>
+        <div class="vs-cell vs-cell--ar" role="cell">تسوّق، ملاحة، تعليم، ترجمة، ترفيه سريع.</div>
+        <div class="vs-cell vs-cell--vr" role="cell">تدريب مهني، ألعاب، محاكاة، علاج نفسي وجسدي.</div>
+      </div>
+    </div>
+    <p class="s-note s-note--center"><svg class="ico"><use href="#i-spark"/></svg><span>القاعدة السريعة: <b>AR = إضافة</b> · <b>VR = انتقال</b>. بينهما تقع تقنية <b>MR</b> (الواقع المختلط) حيث يتفاعل العنصر الافتراضي مع عنصر حقيقي أمامك.</span></p>
+  </div>
+</section>
+
+<!-- ============ 6 · HOW DOES IT WORK ============ -->
+<section class="slide" data-title="كيف تعمل هذه التقنيات؟" data-notes="هنا أكّد على أن عمل هذه الأنظمة ليس سحرًا بل خط أنابيب: تلتقط، تتبّع، تفهم، ترسم، تستجيب. اربطي كل تقنية بمخرج ملموس: الكاميرا تعطيك الصورة، والتتبّع (tracking) يعطيك موقعك، والنمذجة ثلاثية الأبعاد تعطيك المجسّم، والرؤية الحاسوبية (Computer Vision) مع SLAM تعطيك ثبات العنصر في المكان، والذكاء الاصطناعي هو من يفسّر ويعقلن. أكدي أن البوابة هنا هي تخصصك: AI هو من ينقل AR/VR من عرض جميل إلى نظام ذكي.">
+  <div class="slide__inner">
+    <header class="s-head s-head--center">
+      <span class="kicker"><i class="dot"></i>البنية التقنية · <span dir="ltr">How Does It Work?</span></span>
+      <h2 class="s-title">خمس تقنيات تصنع التجربة</h2>
+    </header>
+
+    <div class="pipeline" aria-hidden="true">
+      <span class="pipe-step"><b dir="ltr">Capture</b><i>التقاط</i></span>
+      <span class="pipe-arrow"></span>
+      <span class="pipe-step"><b dir="ltr">Track</b><i>تتبّع</i></span>
+      <span class="pipe-arrow"></span>
+      <span class="pipe-step"><b dir="ltr">Understand</b><i>فهم</i></span>
+      <span class="pipe-arrow"></span>
+      <span class="pipe-step"><b dir="ltr">Render</b><i>عرض</i></span>
+      <span class="pipe-arrow"></span>
+      <span class="pipe-step"><b dir="ltr">Respond</b><i>استجابة</i></span>
+    </div>
+
+    <div class="tech-grid">
+      <article class="tech">
+        <div class="tech__icon"><svg class="ico"><use href="#i-camera"/></svg></div>
+        <h3>المستشعرات والكاميرات</h3>
+        <p class="tech__en" dir="ltr">Sensors &amp; Cameras</p>
+        <p>تلتقط صورة العالم وموقع المستخدم واتجاهه: <i>IMU</i>، جيروسكوب، <i>LiDAR</i>، وكاميرات <span dir="ltr">RGB</span>/<span dir="ltr">Depth</span>.</p>
+      </article>
+      <article class="tech">
+        <div class="tech__icon"><svg class="ico"><use href="#i-motion"/></svg></div>
+        <h3>تتبّع الحركة</h3>
+        <p class="tech__en" dir="ltr">Motion Tracking</p>
+        <p>يحسب موقعك واتجاهك داخل الغرفة بدقة <span dir="ltr">6DoF</span> عبر مزيج من المستشعرات والتتبّع البصري.</p>
+      </article>
+      <article class="tech">
+        <div class="tech__icon"><svg class="ico"><use href="#i-cube"/></svg></div>
+        <h3>النمذجة ثلاثية الأبعاد</h3>
+        <p class="tech__en" dir="ltr">3D Modeling</p>
+        <p>تحويل العناصر إلى <i>Mesh</i> مع نسيج (<i>Texture</i>) وعمق، ليظهر العنصر كأنّه منحوت داخل المشهد.</p>
+      </article>
+      <article class="tech">
+        <div class="tech__icon"><svg class="ico"><use href="#i-target"/></svg></div>
+        <h3>الرؤية الحاسوبية</h3>
+        <p class="tech__en" dir="ltr">Computer Vision</p>
+        <p>خريطة للمشهد <span dir="ltr">(SLAM)</span> تسمح بتثبيت العنصر الرقمي في مكانه مهما تحرّكت.</p>
+      </article>
+      <article class="tech tech--hi">
+        <div class="tech__icon"><svg class="ico"><use href="#i-chip"/></svg></div>
+        <h3>الذكاء الاصطناعي</h3>
+        <p class="tech__en" dir="ltr">Artificial Intelligence (AI)</p>
+        <p>يتعرّف على الأجسام، ويفهم نيتك، ويولّد محتوى، ويجعل التجربة <b>ذكية</b> لا مجرد عرض.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 7 · REAL-WORLD APPLICATIONS ============ -->
+<section class="slide" data-title="التطبيقات في الواقع" data-notes="هذه شريحة استعراض سريع — مرّري سريعًا على المجالات الخمسة مع مثال واحد لكل مجال، دون قراءة كل التفاصيل. ركّزي على أن هذه التطبيقات ليست ترفيهية فقط: أكبر أثر في التعليم والتدريب والطب. اذكري مثال التدريب الجراحي بالـVR لأنه يقلل المخاطرة على المرضى الحقيقيين. ثم وجّهي الانتقال: بعد النظريات والتطبيقات، ننتقل إلى أمثلة حقيقية على أرض الواقع.">
+  <div class="slide__inner">
+    <header class="s-head s-head--center">
+      <span class="kicker"><i class="dot"></i>على أرض الواقع · <span dir="ltr">Real-World Applications</span></span>
+      <h2 class="s-title">أين تُستخدم هذه التقنيات فعلًا؟</h2>
+    </header>
+
+    <div class="apps">
+      <article class="app app--edu">
+        <div class="app__icon"><svg class="ico"><use href="#i-cap"/></svg></div>
+        <h3>التعليم والتدريب</h3>
+        <p class="app__en" dir="ltr">Education &amp; Training</p>
+        <p>محاكاة عملية جراحية داخل <span dir="ltr">VR</span> قبل تنفيذها على مريض حقيقي، وتدريب الطيارين على محاكي طيران دون إقلاع فعلي.</p>
+      </article>
+      <article class="app app--health">
+        <div class="app__icon"><svg class="ico"><use href="#i-health"/></svg></div>
+        <h3>الرعاية الصحية</h3>
+        <p class="app__en" dir="ltr">Healthcare</p>
+        <p>تخطيط العمليات قبل التنفيذ، وعلاج للحالات النفسية والجسدية عبر جلسات VR، وتدريب الأطباء على الحالات النادرة.</p>
+      </article>
+      <article class="app app--game">
+        <div class="app__icon"><svg class="ico"><use href="#i-game"/></svg></div>
+        <h3>الألعاب والترفيه</h3>
+        <p class="app__en" dir="ltr">Gaming &amp; Entertainment</p>
+        <p>ألعاب <span dir="ltr">Room-scale</span> تتحول إلى صالة رياضية افتراضية، وحفلات موسيقية تُشاهد من داخل الغرفة.</p>
+      </article>
+      <article class="app app--shop">
+        <div class="app__icon"><svg class="ico"><use href="#i-bag"/></svg></div>
+        <h3>التسوّق والتجارة</h3>
+        <p class="app__en" dir="ltr">Shopping &amp; E-commerce</p>
+        <p>عرض الأثاث بمقياس حقيقي داخل غرفتك قبل الشراء، وتجريب الأحذية والنظارات <i>Virtual Try-On</i>.</p>
+      </article>
+      <article class="app app--tour">
+        <div class="app__icon"><svg class="ico"><use href="#i-pin"/></svg></div>
+        <h3>السياحة والجولات الافتراضية</h3>
+        <p class="app__en" dir="ltr">Tourism &amp; Virtual Tours</p>
+        <p>جولة داخل متحف أو موقع أثري من أي مكان في العالم، وزيارة وجهات لا يمكن الوصول إليها في الوقت الحالي.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 8 · AMAZING REAL-LIFE EXAMPLES ============ -->
+<section class="slide" data-title="أمثلة حقيقية" data-notes="هنا نتأكد من أن الأمثلة حقيقية وقابلة للتحقق: Pokémon GO ما زال يعمل بأحداث حية حتى 2026 ويجمع بين تحديد الموقع والـAR، وIKEA Place يستخدم ARKit ويعرض أكثر من 3,200 منتج بمقياس حقيقي. اذكري أن سعر Apple Vision Pro بلغ 3,699 دولار بينما Quest 3 أقل من 600 — وهذا يفسّر فجوة الوصول. اربطي الأمثلة بالسوق: المنصات العملاقة تستثمر في هذا المجال.">
+  <div class="slide__inner">
+    <header class="s-head s-head--center">
+      <span class="kicker"><i class="dot"></i>أمثلة · <span dir="ltr">Amazing Real-Life Examples</span></span>
+      <h2 class="s-title">حالات حقيقية يعرفها الجميع</h2>
+    </header>
+
+    <div class="examples">
+      <article class="ex">
+        <div class="ex__badge ex__badge--ar" dir="ltr">AR</div>
+        <h3>Pokémon GO</h3>
+        <p class="ex__meta">لعبة جوال · <span dir="ltr">Niantic / Scopely</span> · إدارة مستمرة في 2026</p>
+        <p>تجمع بين <i>GPS</i> والبوصلة وطبقة <span dir="ltr">AR</span>، فيتحوّل شارعك إلى خريطة ضوئية: تلتقط شخصية عند موقع فعلي، وتظهر فوق العالم الحقيقي.</p>
+        <ul class="ex__tags"><li>Geolocation</li><li>Live Events</li><li>Community</li></ul>
+      </article>
+      <article class="ex">
+        <div class="ex__badge ex__badge--ar" dir="ltr">AR</div>
+        <h3>IKEA Place</h3>
+        <p class="ex__meta">تسوّق · <span dir="ltr">ARKit</span> · أكثر من 3,200 منتج</p>
+        <p>يعمل بـ <span dir="ltr">Apple ARKit</span> ليضع قطعة الأثاث بحجمها الحقيقي داخل غرفتك، فتقيس المسافة وترى اللون والإضاءة قبل قرار الشراء.</p>
+        <ul class="ex__tags"><li>ARKit</li><li>True Scale</li><li>Room Scan</li></ul>
+      </article>
+      <article class="ex">
+        <div class="ex__badge ex__badge--vr" dir="ltr">VR / MR</div>
+        <h3>Meta Quest 3 &amp; Vision Pro</h3>
+        <p class="ex__meta">أجهزة · Quest 3 بـ<span dir="ltr">passthrough</span> · Vision Pro بشريحة M5</p>
+        <p><span dir="ltr">Quest 3</span> يتيح الانتقال بين VR الكامل و<span dir="ltr">MR</span> حيث تتفاعل الكائنات الافتراضية مع غرفتك الحقيقية، بينما يقدّم <span dir="ltr">Vision Pro</span> تجربة <i>spatial computing</i> بدقة أعلى.</p>
+        <ul class="ex__tags"><li>Passthrough</li><li>Spatial Video</li><li>Hand Tracking</li></ul>
+      </article>
+      <article class="ex">
+        <div class="ex__badge ex__badge--ar" dir="ltr">AR</div>
+        <h3>Ray-Ban Meta Gen 3</h3>
+        <p class="ex__meta">نظارات ذكية · من <span dir="ltr">$449</span> · <span dir="ltr">Meta Ray-Ban Display $799</span></p>
+        <p>نظارات <span dir="ltr">AI glasses</span> تلبسها طوال اليوم: كاميرا، ومساعد <span dir="ltr">Meta AI</span> صوتي، وترجمة مباشرة، ومعايشة <span dir="ltr">AR</span> خفيفة بلا وزنٍ يُذكر.</p>
+        <ul class="ex__tags"><li>Always-on</li><li>Voice AI</li><li>Live Translate</li></ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 9 · BENEFITS & CHALLENGES ============ -->
+<section class="slide" data-title="المميزات والتحديات" data-notes="كنت صادقة هنا: لا يوجد تطبيق بلا ثمن. المميزات واضحة — التعلّم تفاعلي، والمحاكاة واقعية، وتجربة المستخدم أقوى. التحديات الأربعة الكلاسيكية: التكلفة، الخصوصية، دوار الحركة، وحدود العتاد. أضفي نقطة عملية عن دوار الحركة: سببه تعارض بين ما تراه عينك (What You See) واستجابة الأذن الداخلية (Vestibular System)، وله حلول مثل رفع معدل الإطارات وتقليل مدة الجلسة. اربطي تحدي الخصوصية بالنقاش الأخلاقي — وهو ممتاز لمناقشة ختامية.">
+  <div class="slide__inner">
+    <header class="s-head s-head--center">
+      <span class="kicker"><i class="dot"></i>توازن · <span dir="ltr">Benefits &amp; Challenges</span></span>
+      <h2 class="s-title">الوجهان للميدان</h2>
+    </header>
+
+    <div class="bc">
+      <section class="bc__col bc__col--good">
+        <header class="bc__head"><svg class="ico"><use href="#i-check"/></svg><h3>المميزات</h3><span dir="ltr">Benefits</span></header>
+        <ul class="bc__list">
+          <li><b>تعلّم تفاعلي</b><span dir="ltr">Interactive Learning</span><p>المتعلّم يمارس ويخطئ ويعيد المحاولة داخل بيئة آمنة، بدل أن يحفظ المعلومة نظريًا فقط.</p></li>
+          <li><b>محاكاة واقعية</b><span dir="ltr">Realistic Simulation</span><p>تدريب على حالات خطرة أو مكلفة دون تحمل ضررها الحقيقي.</p></li>
+          <li><b>تجربة مستخدم أفضل</b><span dir="ltr">Better User Experience</span><p>واجهات غامرة تجعل الفهم أسرع والتفاعل أكثر حدسية.</p></li>
+          <li><b>تعاون مكاني</b><span dir="ltr">Spatial Collaboration</span><p>فرق هندسية تراجع نموذجًا واحدًا من مواقع مختلفة في الوقت نفسه.</p></li>
+        </ul>
+      </section>
+      <section class="bc__col bc__col--bad">
+        <header class="bc__head"><svg class="ico"><use href="#i-x"/></svg><h3>التحديات</h3><span dir="ltr">Challenges</span></header>
+        <ul class="bc__list">
+          <li><b>تكلفة مرتفعة</b><span dir="ltr">High Cost</span><p>من <span dir="ltr">$599.99</span> لـ<a href="https://www.apple.com/apple-vision-pro/" target="_blank" rel="noopener">Apple Vision Pro</a> بـ <span dir="ltr">$3,699</span>، إضافة إلى تكلفة المحتوى.</p></li>
+          <li><b>مخاوف الخصوصية</b><span dir="ltr">Privacy Concerns</span><p>كاميرات ونظارات تسجّل محيطك بشكل دائم؛ من يملك بياناتك؟</p></li>
+          <li><b>دوار الحركة</b><span dir="ltr">Motion Sickness</span><p>تعارض بين حركة الجسم وحركة الصورة؛ تُعالج بجلسات أقصر ومعدّل إطارات أعلى.</p></li>
+          <li><b>حدود العتاد</b><span dir="ltr">Hardware Limitations</span><p>بطارية، حرارة، وزن، ومجال رؤية يحدّ من ساعات الاستخدام.</p></li>
+        </ul>
+      </section>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 10 · THE ROLE OF AI ============ -->
+<section class="slide" data-title="دور الذكاء الاصطناعي" data-notes="هذه شريحة تخصّصك — أعطها وقتًا أكبر. اربطي كل قدرة بمثال ملموس: Object Recognition يجعل التطبيق يعرف أنه أمام كرسي فيضيف عليه تعليمات؛ Intelligent Virtual Characters يجعل NPC في اللعبة يفهم سؤالك ويرد؛ Personalized Experiences يجعل المحتوى يتكيّف مع مستوى الطالب؛ Real-Time Interaction يعني فهم الصوت واليدين والعينين. أضيفي أن الذكاء التوليدي خفّض كلفة إنتاج المحتوى ثلاثي الأبعاد بشكل كبير، وهذا ما يجعل AR/VR ممكناً اقتصادياً على نطاق واسع.">
+  <div class="slide__inner">
+    <header class="s-head s-head--center">
+      <span class="kicker"><i class="dot"></i>نقطة الالتقاء · <span dir="ltr">The Role of AI</span></span>
+      <h2 class="s-title">الذكاء الاصطناعي هو المحرك</h2>
+    </header>
+
+    <div class="hub">
+      <div class="hub__side hub__side--ar">
+        <div class="hub__icon"><svg class="ico"><use href="#i-phone"/></svg></div>
+        <b dir="ltr">AR</b>
+        <span>يرى العالم الحقيقي</span>
+      </div>
+      <div class="hub__link hub__link--r"><span></span></div>
+      <div class="hub__core">
+        <div class="hub__ring"></div>
+        <div class="hub__ring hub__ring--2"></div>
+        <div class="hub__icon hub__icon--core"><svg class="ico"><use href="#i-chip"/></svg></div>
+        <b dir="ltr">Artificial Intelligence</b>
+        <span>الفهم · التوقع · التوليد</span>
+      </div>
+      <div class="hub__link hub__link--l"><span></span></div>
+      <div class="hub__side hub__side--vr">
+        <div class="hub__icon"><svg class="ico"><use href="#i-headset"/></svg></div>
+        <b dir="ltr">VR</b>
+        <span>يعيش داخل العالم</span>
+      </div>
+    </div>
+
+    <div class="ai-grid">
+      <article class="ai">
+        <svg class="ico"><use href="#i-target"/></svg>
+        <h3>التعرّف على الأجسام</h3>
+        <p class="ai__en" dir="ltr">Object Recognition</p>
+        <p>يحدّد النظام ما أمامه ويضيف طبقة معلومات مناسبة له فورًا.</p>
+      </article>
+      <article class="ai">
+        <svg class="ico"><use href="#i-robot"/></svg>
+        <h3>شخصيات افتراضية ذكية</h3>
+        <p class="ai__en" dir="ltr">Intelligent Virtual Characters</p>
+        <p>شخصيات <span dir="ltr">NPC</span> تفهم الحوار وتردّ بلغة طبيعية داخل العالم الافتراضي.</p>
+      </article>
+      <article class="ai">
+        <svg class="ico"><use href="#i-users"/></svg>
+        <h3>تجارب مخصّصة</h3>
+        <p class="ai__en" dir="ltr">Personalized Experiences</p>
+        <p>يتكيّف المحتوى مع مستوى المستخدم وسلوكه وسرعته في التعلّم.</p>
+      </article>
+      <article class="ai">
+        <svg class="ico"><use href="#i-motion"/></svg>
+        <h3>تفاعل لحظي</h3>
+        <p class="ai__en" dir="ltr">Real-Time Interaction</p>
+        <p>فهم الصوت، حركات اليدين، ونظرة العين لتحليل نية المستخدم فورًا.</p>
+      </article>
+    </div>
+
+    <p class="s-note s-note--center"><svg class="ico"><use href="#i-spark"/></svg><span><b>إضافة مهمة:</b> <span dir="ltr">Generative AI</span> صار يولّد نماذج <span dir="ltr">3D</span> وخامات ونصوصًا داخل العالم الافتراضي لحظيًا — وهذا يخفض كلفة المحتوى بشكل كبير ويوسّع نطاق الاستخدام.</span></p>
+  </div>
+</section>
+
+<!-- ============ 11 · THE FUTURE ============ -->
+<section class="slide" data-title="مستقبل التقنيات الغامرة" data-notes="اربطي الماضي بالحاضر بالمستقبل. Mixed Reality هو الدمج الفعلي: العنصر الافتراضي يتفاعل مع حقيقي أمامك. Digital Twins هي النسخة الرقمية الحيّة من مصنع أو مبنى تتغذى ببيانات المستشعرات وتُعرض داخل VR. الذكاء التوليدي يعيد بناء العوالم. والنظارات الذكية هي القفزة التي تجعل التقنية خفيفة. اختتمي بمقارنة اليوم بالغد: اليوم AR عبر الهاتف وVR بنظارة ثقيلة؛ الغد نظارات يومية وعوالم مولّدة بالذكاء.">
+  <div class="slide__inner">
+    <header class="s-head s-head--center">
+      <span class="kicker"><i class="dot"></i>نظرة إلى الأمام · <span dir="ltr">The Future of Immersive Technology</span></span>
+      <h2 class="s-title">من الجوّال إلى النظارة اليومية</h2>
+    </header>
+
+    <div class="future-grid">
+      <article class="fut">
+        <div class="fut__icon"><svg class="ico"><use href="#i-layers"/></svg></div>
+        <h3>الواقع المختلط</h3>
+        <p class="fut__en" dir="ltr">Mixed Reality (MR)</p>
+        <p>دمج كامل بين AR وVR: كائنات افتراضية تتفاعل مع الأجسام الحقيقية وتلقي ظلالها عليها، لا تطفو فوقها فحسب.</p>
+      </article>
+      <article class="fut">
+        <div class="fut__icon"><svg class="ico"><use href="#i-twin"/></svg></div>
+        <h3>التوائم الرقمية</h3>
+        <p class="fut__en" dir="ltr">Digital Twins</p>
+        <p>نسخة رقمية حيّة من مصنع أو مبنى أو جهاز تتغذى ببيانات المستشعرات وتُعرض داخل <span dir="ltr">VR</span> للاختبار والتنبؤ بالأعطال.</p>
+      </article>
+      <article class="fut">
+        <div class="fut__icon"><svg class="ico"><use href="#i-spark"/></svg></div>
+        <h3>عوالم يولّدها الذكاء</h3>
+        <p class="fut__en" dir="ltr">AI-Powered Virtual Worlds</p>
+        <p>بيئات وشخصيات ومحتوى يُصنع لحظيًا حسب طلب المستخدم، فكل تجربة تصبح فريدة ومخصّصة.</p>
+      </article>
+      <article class="fut">
+        <div class="fut__icon"><svg class="ico"><use href="#i-glasses"/></svg></div>
+        <h3>النظارات الذكية</h3>
+        <p class="fut__en" dir="ltr">Smart Glasses</p>
+        <p><span dir="ltr">Ray-Ban Meta Gen 3</span> بسعر يبدأ من <span dir="ltr">$449</span>، و<span dir="ltr">Meta Ray-Ban Display</span> بـ <span dir="ltr">$799</span>: AR في يومك بلا نظارة ثقيلة.</p>
+      </article>
+    </div>
+
+    <div class="now-vs">
+      <div class="now-vs__col">
+        <span class="now-vs__tag">اليوم</span>
+        <ul><li>AR عبر الهاتف</li><li>VR بنظارة مستقلة</li><li>محتوى محدود ومكلف</li><li>استخدام قصير</li></ul>
+      </div>
+      <div class="now-vs__arrow"><svg class="ico"><use href="#i-arrow-l"/></svg></div>
+      <div class="now-vs__col now-vs__col--next">
+        <span class="now-vs__tag">التوقعات</span>
+        <ul><li>MR في كل مكان</li><li>نظارات خفيفة يومية</li><li>محتوى يولّده الذكاء</li><li>حضور دائم</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 12 · CONCLUSION & DISCUSSION ============ -->
+<section class="slide slide--end" data-title="الخلاصة والنقاش" data-notes="اختتمي بالاقتباس ثم توقّفي واطرحي السؤال: لو اخترتِ تقنية واحدة لحياتك اليومية، AR أم VR ولماذا؟ استمعي للإجابات وكوّني سؤالًا متابعة لكل إجابة. ثم اختمي بثلاث رسائل: العالم الرقمي لم يعد أمامك بل حولك، وAI هو الجسر، والقرار الآن تقني وأخلاقي في آنٍ واحد. اقرئي المصادر بهدوء واتركي السؤال مفتوحًا للنقاش.">
+  <div class="slide__inner">
+    <header class="s-head s-head--center">
+      <span class="kicker"><i class="dot"></i>الخلاصة · <span dir="ltr">Conclusion &amp; Discussion</span></span>
+    </header>
+
+    <blockquote class="final-quote" dir="ltr">“The future is not just about seeing the world differently, but <span>experiencing</span> it differently.”</blockquote>
+
+    <div class="takeaways">
+      <div class="tk"><span dir="ltr">01</span><p><b>AR يضيف، VR ينقل</b> — تقنيتان متكاملتان لا متنافستان، بينهما تقع <span dir="ltr">MR</span>.</p></div>
+      <div class="tk"><span dir="ltr">02</span><p><b>الذكاء الاصطناعي هو الجسر</b> — هو من يحوّل عرضًا بصريًا إلى نظام يقرأ ويفهم ويتعلّم.</p></div>
+      <div class="tk"><span dir="ltr">03</span><p><b>السؤال لم يعد «هل»</b> — بل «متى» و«إلى أي حد» و«بأي ثمن» من الخصوصية والأخلاقيات.</p></div>
+    </div>
+
+    <div class="ask">
+      <span class="ask__tag"><svg class="ico"><use href="#i-users"/></svg>نقاش مفتوح</span>
+      <p dir="ltr">“If you could choose one technology for your daily life, would you choose AR or VR? Why?”</p>
+    </div>
+
+    <div class="end-row">
+      <div class="refs">
+        <h4>المراجع <span dir="ltr">References</span></h4>
+        <ul>
+          <li><span dir="ltr">ISO 23247</span> — Digital Twin framework for manufacturing.</li>
+          <li><span dir="ltr">Meta</span> — Meta Connect 2026 announcements &amp; product pages.</li>
+          <li><span dir="ltr">IKEA Newsroom</span> — IKEA Place app (ARKit, 3,200+ products).</li>
+          <li><span dir="ltr">Pokémon GO News</span> — pokemongolive.com/en/news (live events 2026).</li>
+          <li><span dir="ltr">Apple</span> — Apple Vision Pro (M5) product page.</li>
+          <li><span dir="ltr">Unity</span> — Digital Twins in Manufacturing (technical overview).</li>
+        </ul>
+      </div>
+      <div class="thanks">
+        <span class="thanks__mark"><svg class="ico"><use href="#i-spark"/></svg></span>
+        <h3>شكرًا لكم</h3>
+        <p dir="ltr">Questions &amp; Discussion</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ أزرار التنقل ============ -->
+<div class="nav" aria-label="التنقل بين الشرائح">
+  <button class="navbtn navbtn--prev" id="btnPrev" type="button" aria-label="الشريحة السابقة"><svg class="ico"><use href="#i-arrow-r"/></svg><span class="navbtn__txt">السابق</span></button>
+  <button class="navbtn navbtn--next" id="btnNext" type="button" aria-label="الشريحة التالية"><svg class="ico"><use href="#i-arrow-l"/></svg><span class="navbtn__txt">التالي</span></button>
+</div>
+
+<!-- ============ شريط التقدّم ============ -->
+<div class="progress" aria-hidden="true"><div class="progress__bar" id="progressBar"></div></div>
+
+<!-- ============ لوحة ملاحظات المُحاضر ============ -->
+<aside class="notes" id="notesPanel" aria-hidden="true">
+  <div class="notes__head">
+    <svg class="ico"><use href="#i-note"/></svg>
+    <span>ملاحظات المُحاضر — <b id="notesSlide">1</b></span>
+    <button class="notes__close" id="btnNotesClose" type="button" aria-label="إغلاق">×</button>
+  </div>
+  <div class="notes__body" id="notesBody"></div>
+</aside>
+
+<!-- ============ aide clavier ============ -->
+<div class="kbd-hint" id="kbdHint" aria-hidden="true">
+  <span><kbd>←</kbd> <kbd>→</kbd> تنقّل</span>
+  <span><kbd>Space</kbd> التالي</span>
+  <span><kbd>N</kbd> ملاحظات</span>
+  <span><kbd>P</kbd> طباعة</span>
+</div>
+
+<script src="slides.js"></script>
+</body>
+</html>
